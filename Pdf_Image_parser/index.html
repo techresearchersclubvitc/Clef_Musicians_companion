@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Extractor - PDF & Image OCR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="bi bi-file-earmark-text"></i>
+                <h1>Text Extractor</h1>
+            </div>
+            <div class="header-info">
+                <span>Extract text from PDFs and images with OCR</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="upload-container">
+            <div class="upload-tabs">
+                <button class="tab-button active" data-tab="pdf">
+                    <i class="bi bi-file-earmark-pdf"></i> PDF Document
+                </button>
+                <button class="tab-button" data-tab="image">
+                    <i class="bi bi-image"></i> Image (All Formats)
+                </button>
+            </div>
+
+            <div id="pdf-tab" class="tab-content active">
+                <div class="upload-area" id="pdf-upload-area">
+                    <i class="bi bi-cloud-arrow-up upload-icon"></i>
+                    <p class="upload-text">Drag and drop your PDF file here</p>
+                    <p class="upload-subtext">or click to browse</p>
+                    <input type="file" id="pdf-file-input" accept=".pdf">
+                </div>
+                <div class="file-info" id="pdf-file-info">
+                    <div class="file-name">
+                        <i class="bi bi-file-earmark-pdf"></i>
+                        <span id="pdf-file-name"></span>
+                    </div>
+                    <div class="file-size" id="pdf-file-size"></div>
+                    <button class="action-button" id="extract-pdf-button">
+                        <span class="button_top">
+                            <i class="bi bi-file-earmark-text"></i> Extract Text
+                        </span>
+                    </button>
+                </div>
+                <div class="progress-container" id="pdf-progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" id="pdf-progress-bar"></div>
+                    </div>
+                    <div class="progress-text" id="pdf-progress-text">Processing...</div>
+                </div>
+            </div>
+
+            <div id="image-tab" class="tab-content">
+                <div class="upload-area" id="image-upload-area">
+                    <i class="bi bi-cloud-arrow-up upload-icon"></i>
+                    <p class="upload-text">Drag and drop your image file here</p>
+                    <p class="upload-subtext">Supports JPG, PNG, GIF, BMP, TIFF, WEBP and more</p>
+                    <input type="file" id="image-file-input" accept="image/*">
+                </div>
+                <div class="file-info" id="image-file-info">
+                    <div class="file-name">
+                        <i class="bi bi-image"></i>
+                        <span id="image-file-name"></span>
+                    </div>
+                    <div class="file-size" id="image-file-size"></div>
+                    <button class="action-button" id="extract-image-button">
+                        <span class="button_top">
+                            <i class="bi bi-file-earmark-text"></i> Extract Text with OCR
+                        </span>
+                    </button>
+                </div>
+                <div class="progress-container" id="image-progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" id="image-progress-bar"></div>
+                    </div>
+                    <div class="progress-text" id="image-progress-text">Processing...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-container" id="result-container">
+            <div class="result-header">
+                <div class="result-title">
+                    <i class="bi bi-file-earmark-text"></i>
+                    Extracted Text
+                </div>
+                <div class="result-actions">
+                    <button class="action-button" id="copy-button">
+                        <span class="button_top">
+                            <i class="bi bi-clipboard"></i> Copy
+                        </span>
+                    </button>
+                    <button class="action-button" id="download-button">
+                        <span class="button_top">
+                            <i class="bi bi-download"></i> Download
+                        </span>
+                    </button>
+                    <button class="action-button" id="clear-button">
+                        <span class="button_top">
+                            <i class="bi bi-trash"></i> Clear
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="result-text" id="result-text"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Tanay Mitra</p>
+            <div class="footer-links">
+                <a href="https://github.com/tanaymitra54" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="bi bi-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/tanay-mitra-b23091174/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <i class="bi bi-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="notification" id="notification">
+        <i class="bi bi-check-circle"></i>
+        <span id="notification-message"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
