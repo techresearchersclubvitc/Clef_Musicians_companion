@@ -81,11 +81,107 @@
     </main>
     </div>
 
-    <script>
-      
-    </script>
 
 
+    <main>
+        <div class="upload-container">
+            <div class="upload-tabs">
+                <button class="tab-button active" data-tab="pdf">
+                    <i class="bi bi-file-earmark-pdf"></i> PDF Document
+                </button>
+                <button class="tab-button" data-tab="image">
+                    <i class="bi bi-image"></i> Image (All Formats)
+                </button>
+            </div>
+
+            <div id="pdf-tab" class="tab-content active">
+                <div class="upload-area" id="pdf-upload-area">
+                    <i class="bi bi-cloud-arrow-up upload-icon"></i>
+                    <p class="upload-text">Drag and drop your PDF file here</p>
+                    <p class="upload-subtext">or click to browse</p>
+                    <input type="file" id="pdf-file-input" accept=".pdf">
+                </div>
+                <div class="file-info" id="pdf-file-info">
+                    <div class="file-name">
+                        <i class="bi bi-file-earmark-pdf"></i>
+                        <span id="pdf-file-name"></span>
+                    </div>
+                    <div class="file-size" id="pdf-file-size"></div>
+                    <button class="action-button" id="extract-pdf-button">
+                        <span class="button_top">
+                            <i class="bi bi-file-earmark-text"></i> Extract Text
+                        </span>
+                    </button>
+                </div>
+                <div class="progress-container" id="pdf-progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" id="pdf-progress-bar"></div>
+                    </div>
+                    <div class="progress-text" id="pdf-progress-text">Processing...</div>
+                </div>
+            </div>
+
+            <div id="image-tab" class="tab-content">
+                <div class="upload-area" id="image-upload-area">
+                    <i class="bi bi-cloud-arrow-up upload-icon"></i>
+                    <p class="upload-text">Drag and drop your image file here</p>
+                    <p class="upload-subtext">Supports JPG, PNG, GIF, BMP, TIFF, WEBP and more</p>
+                    <input type="file" id="image-file-input" accept="image/*">
+                </div>
+                <div class="file-info" id="image-file-info">
+                    <div class="file-name">
+                        <i class="bi bi-image"></i>
+                        <span id="image-file-name"></span>
+                    </div>
+                    <div class="file-size" id="image-file-size"></div>
+                    <button class="action-button" id="extract-image-button">
+                        <span class="button_top">
+                            <i class="bi bi-file-earmark-text"></i> Extract Text with OCR
+                        </span>
+                    </button>
+                </div>
+                <div class="progress-container" id="image-progress-container">
+                    <div class="progress">
+                        <div class="progress-bar" id="image-progress-bar"></div>
+                    </div>
+                    <div class="progress-text" id="image-progress-text">Processing...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-container" id="result-container">
+            <div class="result-header">
+                <div class="result-title">
+                    <i class="bi bi-file-earmark-text"></i>
+                    Extracted Text
+                </div>
+                <div class="result-actions">
+                    <button class="action-button" id="copy-button">
+                        <span class="button_top">
+                            <i class="bi bi-clipboard"></i> Copy
+                        </span>
+                    </button>
+                    <button class="action-button" id="download-button">
+                        <span class="button_top">
+                            <i class="bi bi-download"></i> Download
+                        </span>
+                    </button>
+                    <button class="action-button" id="clear-button">
+                        <span class="button_top">
+                            <i class="bi bi-trash"></i> Clear
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="result-text" id="result-text"></div>
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
     <script type="module" src="SriPriyan_buttonplayer.js"></script>
+    <script  src="script.js"></script>
   </body>
 </html>
