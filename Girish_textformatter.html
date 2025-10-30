@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter Component - Girish</title>
+    <link rel="stylesheet" href="Girish_textformatter_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-magic"></i>
+                Text Formatter Component
+            </h1>
+            <p class="subtitle">Advanced text processing with multiple formatting options</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-header">
+                    <h2><i class="fas fa-edit"></i> Input Text</h2>
+                    <div class="char-counter">
+                        <span id="charCount">0</span> characters
+                    </div>
+                </div>
+                <textarea 
+                    id="inputText" 
+                    class="text-input" 
+                    placeholder="Enter your multi-line text here..."
+                    rows="8"
+                ></textarea>
+            </div>
+
+            <!-- Component Selection -->
+            <div class="component-selection">
+                <h2><i class="fas fa-cogs"></i> Choose Formatter</h2>
+                <div class="component-tabs">
+                    <button class="tab-btn active" data-component="1">
+                        <i class="fas fa-font"></i>
+                        <span>Alphabetic Only</span>
+                        <small>Keep letters, remove special chars</small>
+                    </button>
+                    <button class="tab-btn" data-component="2">
+                        <i class="fas fa-hashtag"></i>
+                        <span>Numbers Only</span>
+                        <small>Keep numbers and +/- prefixed</small>
+                    </button>
+                    <button class="tab-btn" data-component="3">
+                        <i class="fas fa-asterisk"></i>
+                        <span>Numeric with *</span>
+                        <small>Keep numbers with * suffix</small>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="formatBtn" class="btn btn-primary">
+                    <i class="fas fa-magic"></i>
+                    Format Text
+                </button>
+                <button id="clearBtn" class="btn btn-secondary">
+                    <i class="fas fa-trash"></i>
+                    Clear All
+                </button>
+                <button id="copyBtn" class="btn btn-outline">
+                    <i class="fas fa-copy"></i>
+                    Copy Result
+                </button>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <div class="output-header">
+                    <h2><i class="fas fa-file-text"></i> Formatted Output</h2>
+                    <div class="output-stats">
+                        <span id="lineCount">0</span> lines
+                        <span id="wordCount">0</span> words
+                    </div>
+                </div>
+                <div class="output-container">
+                    <pre id="outputText" class="output-text">Your formatted text will appear here...</pre>
+                </div>
+            </div>
+
+            <!-- Component Rules -->
+            <div class="rules-section">
+                <h2><i class="fas fa-info-circle"></i> Component Rules</h2>
+                <div class="rules-content">
+                    <div class="rule-card" id="rule1">
+                        <h3><i class="fas fa-font"></i> Component 1: Alphabetic Only</h3>
+                        <ul>
+                            <li>Retain newline positions</li>
+                            <li>Keep only alphabetic characters (a-z, A-Z)</li>
+                            <li>Compress multiple spaces to single space</li>
+                            <li>Remove special characters (.,*!?)</li>
+                        </ul>
+                    </div>
+                    <div class="rule-card" id="rule2" style="display: none;">
+                        <h3><i class="fas fa-hashtag"></i> Component 2: Numbers Only</h3>
+                        <ul>
+                            <li>Retain newline positions</li>
+                            <li>Keep only numeric terms (0-9)</li>
+                            <li>Keep +/- prefixed numbers (+5, -6, +12)</li>
+                        </ul>
+                    </div>
+                    <div class="rule-card" id="rule3" style="display: none;">
+                        <h3><i class="fas fa-asterisk"></i> Component 3: Numeric with *</h3>
+                        <ul>
+                            <li>Retain terms where * follows numeric terms (+6*, -7*)</li>
+                            <li>Compress multiple spaces to single space</li>
+                            <li>Remove special characters except *</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div id="toast" class="toast">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Text formatted successfully!</span>
+        </div>
+    </div>
+
+    <script src="Girish_textformatter_script.js"></script>
+</body>
+</html>
+
