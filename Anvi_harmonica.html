@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>CSS Harmonica</title>
     <link rel="stylesheet" href="Anvi_harmonica.css" />
+    <link rel="stylesheet" href="Vinayak_keypairs_style.css" />
   </head>
   <body>
 
@@ -80,6 +81,23 @@
         <div id="audio-container" class="visually-hidden" aria-hidden="true"></div>
     </main>
     </div>
+
+
+    <div class="Vinayak">
+    <h1>Key — Value Pairs</h1>
+    <p class="Vinayak__hint">Add multiple key/value pairs and click Confirm. Empty pairs are ignored. Duplicate keys will show a warning.</p>
+
+    <div class="Vinayak__rows" aria-live="polite">
+      <!-- rows injected here -->
+    </div>
+
+    <div class="Vinayak__controls">
+      <button type="button" class="Vinayak__add">+ Add Pair</button>
+      <button type="button" class="Vinayak__confirm">Confirm</button>
+    </div>
+
+    <div class="Vinayak__message" aria-live="assertive"></div>
+  </div>
 
 
 
@@ -183,5 +201,6 @@
     <script src="script.js"></script>
     <script type="module" src="SriPriyan_buttonplayer.js"></script>
     <script  src="script.js"></script>
+    <script  src="Vinayak_keypairs_script.js"></script>
   </body>
 </html>
